@@ -9,7 +9,7 @@ let lastHole;
 let timeUp = false;
 let score = 0;
 let countdown;
-let timeLimit = 20000;
+let timeLimit = 999000;
 
 function pickRandomHole(holes){
     const randomHole = Math.floor(Math.random() * holes.length);
@@ -34,7 +34,7 @@ function popOut(){
 
 //step 3 dynamically change text content to countdown//
 function startGame() {
-    countdown = timeLimit/20;
+    countdown = timeLimit/1000;
     scoreBoard.textContent = 0;
     scoreBoard.style.display = 'block';
     countdownBoard.textContent = countdown;
@@ -53,9 +53,11 @@ function startGame() {
             countdownBoard.textContent = 'Times Up! This is the way!';
         }
     }, 1000);
+
 }
 //step 4 adding event listeners//
 startButton.addEventListener('click', startGame);
+
 
 function whack(e){
     score++;
